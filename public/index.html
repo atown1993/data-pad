@@ -1,0 +1,1129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Black Spire Sabers — Mission Control</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap');
+
+@font-face {
+  font-family: 'Aurebesh';
+  src: url('data:font/truetype;base64,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') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  background: #06080a;
+  min-height: 100vh;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 20px 12px;
+  font-family: 'Share Tech Mono', monospace;
+}
+.wrap {
+  width: 100%; max-width: 820px;
+  background: #0a0c0e; color: #7ecfb3;
+  border-radius: 12px; overflow: hidden;
+  border: 1px solid #1a3a2a; position: relative;
+}
+
+/* Aurebesh ticker */
+.ticker-bar {
+  background: #040608; border-bottom: 1px solid #0f2a1a;
+  padding: 5px 0; overflow: hidden; white-space: nowrap;
+}
+.ticker-inner {
+  display: inline-block;
+  font-family: 'Aurebesh', monospace;
+  font-size: 12px; color: #1a4a2a; letter-spacing: 3px;
+  animation: ticker 35s linear infinite;
+}
+@keyframes ticker { 0%{transform:translateX(100vw)} 100%{transform:translateX(-100%)} }
+
+/* Header */
+.site-header {
+  background: #050807; border-bottom: 1px solid #1a3a2a;
+  padding: 12px 20px; display: flex; align-items: center; gap: 14px;
+}
+.logo-ring {
+  width: 38px; height: 38px; border: 2px solid #3ecf99; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-family: 'Aurebesh', monospace; font-size: 14px; color: #3ecf99;
+  flex-shrink: 0; position: relative;
+}
+.logo-ring::after {
+  content: ''; position: absolute; width: 28px; height: 28px;
+  border: 1px solid #1a4a30; border-radius: 50%;
+}
+.header-text { flex: 1; }
+.header-title { font-size: 13px; color: #7ecfb3; letter-spacing: 2px; text-transform: uppercase; }
+.header-aurebesh { font-family: 'Aurebesh', monospace; font-size: 11px; color: #2a5a40; letter-spacing: 2px; margin: 1px 0; }
+.header-sub { font-size: 10px; color: #3a6b52; letter-spacing: 1px; }
+.header-status { font-size: 10px; color: #3ecf99; display: flex; align-items: center; gap: 6px; flex-shrink: 0; }
+.pulse { width: 6px; height: 6px; border-radius: 50%; background: #3ecf99; animation: blink 2s ease-in-out infinite; }
+@keyframes blink { 0%,100%{opacity:1} 50%{opacity:0.3} }
+
+/* Aurebesh divider */
+.aure-divider {
+  font-family: 'Aurebesh', monospace; font-size: 9px; color: #1a3a2a;
+  letter-spacing: 4px; text-align: center; padding: 4px 0;
+  background: #060a08; border-bottom: 1px solid #1a3a2a;
+  overflow: hidden; white-space: nowrap;
+}
+
+/* Tabs */
+.tabs { display: flex; background: #060a08; border-bottom: 1px solid #1a3a2a; overflow-x: auto; }
+.tab {
+  flex: 1; min-width: 80px; padding: 10px 4px;
+  font-family: 'Share Tech Mono', monospace; font-size: 9px;
+  letter-spacing: 1px; text-transform: uppercase;
+  background: transparent; border: none; cursor: pointer; color: #3a6b52;
+  border-bottom: 2px solid transparent; transition: all 0.2s; white-space: nowrap;
+}
+.tab.active { color: #7ecfb3; border-bottom: 2px solid #3ecf99; }
+.tab:hover { color: #7ecfb3; }
+
+/* Panels */
+.panel { display: none; }
+.panel.active { display: block; }
+
+/* ── MISSION CONTROL PANEL ── */
+.mc-intro {
+  background: #060a08; border-bottom: 1px solid #1a3a2a;
+  padding: 10px 20px; font-size: 11px; color: #3a6b52; letter-spacing: 1px;
+}
+.mc-intro span { color: #7ecfb3; }
+
+.stage-wrap { padding: 16px 20px; }
+.stage {
+  border: 1px solid #1a3a2a; border-radius: 8px; margin-bottom: 14px; overflow: hidden;
+}
+.stage-header {
+  display: flex; align-items: center; gap: 10px;
+  padding: 10px 14px; border-bottom: 1px solid #1a3a2a;
+  background: #060a08; cursor: pointer; user-select: none;
+}
+.stage-header:hover { background: #080e0b; }
+.stage-num {
+  width: 24px; height: 24px; border-radius: 50%; border: 1px solid #1a3a2a;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 11px; color: #3ecf99; flex-shrink: 0;
+}
+.stage-title { flex: 1; }
+.stage-name { font-size: 12px; color: #7ecfb3; letter-spacing: 1px; }
+.stage-when { font-size: 10px; color: #3a6b52; margin-top: 2px; }
+.stage-chevron { font-size: 10px; color: #3a6b52; transition: transform 0.2s; }
+.stage-chevron.open { transform: rotate(90deg); }
+.stage-body { display: none; padding: 14px; }
+.stage-body.open { display: block; }
+
+/* Message options within a stage */
+.msg-options { display: flex; flex-direction: column; gap: 8px; }
+.msg-option {
+  border: 1px solid #1a3a2a; border-radius: 6px; overflow: hidden;
+  transition: border-color 0.2s;
+}
+.msg-option:hover { border-color: #2a5a3a; }
+.msg-option-header {
+  display: flex; align-items: center; gap: 8px;
+  padding: 8px 12px; cursor: pointer; background: #060a08;
+}
+.msg-droid-tag {
+  font-size: 9px; letter-spacing: 1px; padding: 3px 8px; border-radius: 10px;
+  flex-shrink: 0;
+}
+.msg-option-title { font-size: 11px; color: #5a9a7a; flex: 1; }
+.msg-expand { font-size: 10px; color: #3a6b52; }
+
+.msg-preview {
+  display: none; padding: 12px; border-top: 1px solid #1a3a2a;
+  background: #04080a;
+}
+.msg-preview.open { display: block; }
+.msg-text {
+  font-size: 11px; line-height: 1.8; white-space: pre-wrap;
+  color: #5a9a7a; max-height: 220px; overflow-y: auto;
+  border: 1px solid #0f2a1a; border-radius: 4px; padding: 10px;
+  background: #060a08; margin-bottom: 8px;
+}
+.copy-btn {
+  display: inline-flex; align-items: center; gap: 6px;
+  background: #0f2a1e; border: 1px solid #3ecf99; color: #3ecf99;
+  font-family: 'Share Tech Mono', monospace; font-size: 10px; letter-spacing: 1px;
+  padding: 7px 16px; border-radius: 4px; cursor: pointer; transition: all 0.2s;
+}
+.copy-btn:hover { background: #1a3a28; }
+.copy-btn.copied { background: #0a2a10; border-color: #2aaf70; color: #2aaf70; }
+
+/* DROID COMM PANEL */
+.droid-panel { padding: 16px 20px; }
+.droid-selector { display: flex; gap: 6px; margin-bottom: 10px; flex-wrap: wrap; }
+.droid-btn {
+  background: #060a08; border: 1px solid #1a3a2a; color: #3a6b52;
+  font-family: 'Share Tech Mono', monospace; font-size: 10px; letter-spacing: 1px;
+  padding: 6px 12px; border-radius: 20px; cursor: pointer; transition: all 0.2s;
+}
+.droid-btn:hover { color: #7ecfb3; border-color: #3ecf99; }
+.droid-badge {
+  font-size: 10px; letter-spacing: 1px; color: #3a6b52;
+  margin-bottom: 10px; padding: 6px 10px;
+  border: 1px solid #1a3a2a; border-radius: 4px; background: #060a08;
+}
+.chat-log {
+  height: 260px; overflow-y: auto; margin-bottom: 10px;
+  border: 1px solid #1a3a2a; border-radius: 6px;
+  padding: 12px; background: #060a08; scroll-behavior: smooth;
+}
+.msg-bubble-wrap { margin-bottom: 12px; font-size: 12px; line-height: 1.6; }
+.msg-from-droid { color: #3ecf99; }
+.msg-from-you { text-align: right; }
+.bubble-label { font-size: 9px; letter-spacing: 2px; margin-bottom: 3px; opacity: 0.6; }
+.bubble {
+  display: inline-block; background: #0f1f18; border: 1px solid #1a3a2a;
+  border-radius: 6px; padding: 8px 12px; max-width: 88%; text-align: left;
+}
+.msg-from-you .bubble { background: #0d1a24; border-color: #1a2a3a; color: #a8d4f0; }
+.chat-input-row { display: flex; gap: 8px; align-items: flex-end; margin-top: 6px; }
+.chat-input {
+  flex: 1; background: #060a08; border: 1px solid #1a3a2a; border-radius: 6px;
+  color: #7ecfb3; font-family: 'Share Tech Mono', monospace; font-size: 12px;
+  padding: 10px 12px; resize: none; height: 44px; outline: none;
+  transition: border-color 0.2s;
+}
+.chat-input:focus { border-color: #3ecf99; }
+.chat-input::placeholder { color: #2a4a38; }
+.chat-send {
+  background: #0f2a1e; border: 1px solid #3ecf99; color: #3ecf99;
+  font-family: 'Share Tech Mono', monospace; font-size: 11px; letter-spacing: 1px;
+  padding: 0 16px; height: 44px; border-radius: 6px; cursor: pointer;
+  transition: background 0.2s; flex-shrink: 0;
+}
+.chat-send:hover { background: #1a3a28; }
+.chat-send:disabled { opacity: 0.4; cursor: not-allowed; }
+.typing { font-size: 11px; letter-spacing: 1px; min-height: 16px; color: #3a6b52; }
+
+/* LORE PANEL */
+.lore-panel { padding: 16px 20px; }
+.lore-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 14px; }
+.lore-card {
+  background: #060a08; border: 1px solid #1a3a2a; border-radius: 6px; padding: 12px;
+  font-size: 11px; line-height: 1.8;
+}
+.lore-head { font-size: 9px; letter-spacing: 2px; color: #3a6b52; margin-bottom: 8px; padding-bottom: 5px; border-bottom: 1px solid #1a3a2a; text-transform: uppercase; }
+.lore-aurebesh { font-family: 'Aurebesh', monospace; font-size: 12px; color: #1a3a2a; letter-spacing: 2px; margin-bottom: 6px; display: block; }
+.lore-row { display: flex; gap: 8px; margin-bottom: 3px; }
+.lore-term { color: #3ecf99; min-width: 90px; flex-shrink: 0; }
+.lore-def { color: #5a9a7a; }
+
+/* ABOUT PANEL */
+.about-panel { padding: 16px 20px; font-size: 12px; line-height: 2; color: #5a9a7a; }
+.about-panel .hl { color: #7ecfb3; }
+.about-panel .sh { color: #3ecf99; font-size: 10px; letter-spacing: 2px; margin: 12px 0 4px; display: block; }
+.about-panel .aure { font-family: 'Aurebesh', monospace; font-size: 13px; color: #1a4a2a; letter-spacing: 3px; display: block; margin: 4px 0; }
+
+/* Scan line */
+.scan-line {
+  position: absolute; width: 100%; height: 1px;
+  background: rgba(62,207,153,0.05);
+  animation: scan 6s linear infinite; pointer-events: none; top: 0;
+}
+@keyframes scan { 0%{top:0} 100%{top:100%} }
+
+/* Footer */
+.aure-footer {
+  background: #040608; border-top: 1px solid #0f2a1a;
+  padding: 6px 16px; text-align: center;
+  font-family: 'Aurebesh', monospace; font-size: 10px; color: #1a4a2a; letter-spacing: 3px;
+}
+
+/* HK glitch */
+.hk-glitch { animation: hkglitch 4s infinite; }
+@keyframes hkglitch {
+  0%,95%,100%{opacity:1;transform:none}
+  96%{opacity:0.7;transform:translateX(2px)}
+  97%{opacity:0.9;transform:translateX(-1px)}
+  98%{opacity:1;transform:none}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+<div class="scan-line"></div>
+
+<div class="ticker-bar">
+  <span class="ticker-inner">Black Spire Sabers · Mission Control · Batuu Outskirts · Lightsaber Blades · Droid Personality Chips · Ohnaka Transport Solutions · Rising Suns · Bright Suns · Rising Moons · Till the Spires · May the Spires Keep You &nbsp;&nbsp;&nbsp;</span>
+</div>
+
+<div class="site-header">
+  <div class="logo-ring">B</div>
+  <div class="header-text">
+    <div class="header-title">Black Spire Sabers</div>
+    <div class="header-aurebesh">Black Spire Sabers</div>
+    <div class="header-sub">Mission Control · Batuu Outskirts · Grid Ref 7-Gamma</div>
+  </div>
+  <div class="header-status"><div class="pulse"></div>UPLINK ACTIVE</div>
+</div>
+
+<div class="aure-divider">Black Spire Sabers · Batuu · Ohnaka Transport · Rising Suns · Bright Suns · Rising Moons · Till the Spires · May the Spires Keep You ·</div>
+
+<div class="tabs">
+  <button class="tab active" onclick="switchTab('workflow',this)">◈ Send Messages</button>
+  <button class="tab" onclick="switchTab('droids',this)">◈ Droid Comm</button>
+  <button class="tab" onclick="switchTab('translate',this)" style="color:#9a6a9a;">✎ Translate</button>
+  <button class="tab" onclick="switchTab('lore',this)" style="color:#7a6a3a;">◈ Batuu Lore</button>
+  <button class="tab" onclick="switchTab('about',this)">◈ About</button>
+</div>
+
+<!-- ══════════════════════════════════════════
+     SEND MESSAGES — THE MAIN WORKFLOW TAB
+     ══════════════════════════════════════════ -->
+<div id="panel-workflow" class="panel active">
+  <div class="mc-intro">
+    ◈ CUSTOMER MESSAGE WORKFLOW · Click a stage · Expand to preview · Hit copy · Paste into Etsy message thread
+  </div>
+  <div class="stage-wrap">
+
+    <!-- STAGE 1: ORDER PLACED -->
+    <div class="stage">
+      <div class="stage-header" onclick="toggleStage(this)">
+        <div class="stage-num">1</div>
+        <div class="stage-title">
+          <div class="stage-name">ORDER PLACED</div>
+          <div class="stage-when">Send immediately when order comes in</div>
+        </div>
+        <span class="stage-chevron">▶</span>
+      </div>
+      <div class="stage-body">
+        <div class="msg-options">
+
+          <div class="msg-option">
+            <div class="msg-option-header" onclick="toggleMsg(this)">
+              <span class="msg-droid-tag" style="background:#0f1f18;color:#7ecfb3;border:1px solid #1a3a2a;">◈ B5-o7</span>
+              <span class="msg-option-title">Order Confirmation — B5-o7, Workshop Droid</span>
+              <span class="msg-expand">▶</span>
+            </div>
+            <div class="msg-preview">
+              <div class="msg-text" id="txt-order-bso7">Message Received &lt;-&gt; &lt;-&gt; &lt;-&gt;
+&lt; &lt; Standby for Communication from Black Spire Outpost &gt; &gt;
+&lt;- - - - -&gt;
+&lt;- - - -&gt;
+&lt;- - -&gt;
+&lt;- -&gt;
+&lt;-&gt;
+
+Beep-boop-BWEEEP! This is B5-o7, workshop droid assigned to Black Spire Sabers. *squeak*
+
+Your order has been received and logged in the workshop manifest. The sabersmith has been notified and your commission is queued for crafting.
+
+Expect a follow-up transmission when your order leaves the outpost. Until then — may your kyber crystal resonate true.
+
+'Till the Spires!
+— B5-o7 | Workshop Droid | Black Spire Sabers</div>
+              <button class="copy-btn" onclick="copyMsg('txt-order-bso7', this)">◈ COPY &amp; SEND THIS MESSAGE</button>
+            </div>
+          </div>
+
+          <div class="msg-option">
+            <div class="msg-option-header" onclick="toggleMsg(this)">
+              <span class="msg-droid-tag" style="background:#1a1000;color:#cfb97e;border:1px solid #3a2a10;">✦ BESSI</span>
+              <span class="msg-option-title">Order Confirmation — Bessi's Take</span>
+              <span class="msg-expand">▶</span>
+            </div>
+            <div class="msg-preview">
+              <div class="msg-text" id="txt-order-bessi">Message Received &lt;-&gt; &lt;-&gt; &lt;-&gt;
+&lt; &lt; Standby for Communication from Black Spire Outpost &gt; &gt;
+&lt;- - - - -&gt;
+&lt;- - - -&gt;
+&lt;- - -&gt;
+&lt;- -&gt;
+&lt;-&gt;
+
+Well Bright Suns, Traveler!
+
+This here is Bessi — B3-55 if you're bein' formal. We got your order all logged in the manifest and the sabersmith is already fixin' to get started on your commission!
+
+We're mighty pleased you chose Black Spire Sabers. We'll holler at you again once your cargo is loaded and ready to ride out with Ohnaka Transport Solutions.
+
+'Till the Spires!
+~Bessi | Black Spire Sabers</div>
+              <button class="copy-btn" onclick="copyMsg('txt-order-bessi', this)">◈ COPY &amp; SEND THIS MESSAGE</button>
+            </div>
+          </div>
+
+          <div class="msg-option">
+            <div class="msg-option-header" onclick="toggleMsg(this)">
+              <span class="msg-droid-tag" style="background:#001020;color:#7eb8cf;border:1px solid #102030;">◆ BONES</span>
+              <span class="msg-option-title">Order Confirmation — Bones' Take</span>
+              <span class="msg-expand">▶</span>
+            </div>
+            <div class="msg-preview">
+              <div class="msg-text" id="txt-order-bones">Message Received &lt;-&gt; &lt;-&gt; &lt;-&gt;
+&lt; &lt; Standby for Communication from Black Spire Outpost &gt; &gt;
+&lt;- - - - -&gt;
+&lt;- - - -&gt;
+&lt;- - -&gt;
+&lt;- -&gt;
+&lt;-&gt;
+
+Bright Suns, most esteemed Traveler!
+
+I am B0-n35 — Bones — and it is my ABSOLUTE PLEASURE to confirm that your order has been received at Black Spire Sabers! The sabersmith has been notified and your commission is being prepared with the greatest of care!
+
+We will transmit again the moment your cargo departs the outpost. May the Spires keep you until then!
+
+'Till the Spires!
+~B0-n35 | Black Spire Sabers</div>
+              <button class="copy-btn" onclick="copyMsg('txt-order-bones', this)">◈ COPY &amp; SEND THIS MESSAGE</button>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- STAGE 2: SHIPPED -->
+    <div class="stage">
+      <div class="stage-header" onclick="toggleStage(this)">
+        <div class="stage-num">2</div>
+        <div class="stage-title">
+          <div class="stage-name">ORDER SHIPPED</div>
+          <div class="stage-when">Send when you mark the order as shipped</div>
+        </div>
+        <span class="stage-chevron">▶</span>
+      </div>
+      <div class="stage-body">
+        <div class="msg-options">
+
+          <div class="msg-option">
+            <div class="msg-option-header" onclick="toggleMsg(this)">
+              <span class="msg-droid-tag" style="background:#1a1000;color:#cfb97e;border:1px solid #3a2a10;">✦ BESSI</span>
+              <span class="msg-option-title">Shipping Update — Bessi (Saber Blade)</span>
+              <span class="msg-expand">▶</span>
+            </div>
+            <div class="msg-preview">
+              <div class="msg-text" id="txt-ship-bessi">Message Received &lt;-&gt; &lt;-&gt; &lt;-&gt;
+&lt; &lt; Standby for Communication from Black Spire Outpost &gt; &gt;
+&lt;- - - - -&gt;
+&lt;- - - -&gt;
+&lt;- - -&gt;
+&lt;- -&gt;
+&lt;-&gt;
+
+Howdy Traveler,
+
+I am B3-55, but my friends call me Bessi. I'm a reprogrammed B series droid! I am one of a bunch of Black Spire Sabers droids programmed to help out around here securin' transport/smugglin' from our humble forge here on the outskirts of Black Spire Outpost, to destinations far and wide. Even the unknown regions, if you can believe it.
+
+We're tickled to tell you that your cargo is loaded up and due to depart on the next wagon outta' this town with Ohnaka Transport Solutions.
+
+'Tween you and me, Hondo seems as trustworthy as a rattlesnake. But Hondo promised my boss that he has the fastest and safest roots to your sector. As long as he doesn't get boarded by the First Order again, he's expectin' delivery of your cargo to your home planet, real quick.
+
+Thanks a bunch for your patronage, we sure do hope your purchase turns out real nice for y'all!
+
+'Till the Spires!
+~Bessi | Black Spire Sabers</div>
+              <button class="copy-btn" onclick="copyMsg('txt-ship-bessi', this)">◈ COPY &amp; SEND THIS MESSAGE</button>
+            </div>
+          </div>
+
+          <div class="msg-option">
+            <div class="msg-option-header" onclick="toggleMsg(this)">
+              <span class="msg-droid-tag" style="background:#001020;color:#7eb8cf;border:1px solid #102030;">◆ BONES</span>
+              <span class="msg-option-title">Shipping Update — Bones (Personality Chip)</span>
+              <span class="msg-expand">▶</span>
+            </div>
+            <div class="msg-preview">
+              <div class="msg-text" id="txt-ship-bones">Message Received &lt;-&gt; &lt;-&gt; &lt;-&gt;
+&lt; &lt; Standby for Communication from Black Spire Outpost &gt; &gt;
+&lt;- - - - -&gt;
+&lt;- - - -&gt;
+&lt;- - -&gt;
+&lt;- -&gt;
+&lt;-&gt;
+
+Bright Suns Traveler,
+
+I am B0-n35, but my master calls me Bones. I am a reprogrammed imperial BX droid. I am one of the many droids programmed to assist my master at Black Spire Sabers in securing transport/smuggling and tracking of such hard to find and valuable relics. We gladly offer transport from our humble forge here on the outskirts of Black Spire Outpost, to destinations far and wide.
+
+It gives me great pleasure to inform you that your cargo was securely loaded by Ohnaka Transport Solutions and is currently on its way to your sector.
+
+Hondo has assured my master that he will not be delayed by any imperial inspection patrols, this time. He expects delivery of your cargo to your home planet in the next few sols.
+
+We are so very grateful for your patronage, and hope your new acquisition brings you joy for years to come.
+
+'Till the Spires!
+~B0-n35 | Black Spire Sabers</div>
+              <button class="copy-btn" onclick="copyMsg('txt-ship-bones', this)">◈ COPY &amp; SEND THIS MESSAGE</button>
+            </div>
+          </div>
+
+          <div class="msg-option">
+            <div class="msg-option-header" onclick="toggleMsg(this)">
+              <span class="msg-droid-tag hk-glitch" style="background:#150000;color:#cf7e7e;border:1px solid #2a1010;">⚠ HK-M3</span>
+              <span class="msg-option-title">Shipping Update — HK-M3 (Any Order)</span>
+              <span class="msg-expand">▶</span>
+            </div>
+            <div class="msg-preview">
+              <div class="msg-text" id="txt-ship-hk">Message Received &lt;-#$%^%$#&gt; &lt;-&gt; &lt;-)*(&amp;*(-&gt;
+&lt; &lt; Standby for CCCCCCCCCCommunication from Black Spire 0utpossssst &gt; &gt;
+&lt;- - - - -&gt;
+&lt;- - -______-------------- -&gt;
+&lt;- - -&gt;
+&lt;- -&gt;
+&lt;-&gt;
+
+Salutation: Bright Suns meeeatbag eerrrrr Traveler,
+
+Statement: I @m HK-M3, repurpurposed and reprogrammed HK drrroid pressed into serving as a lowlyyy cargo traqking droid for BBlack Spire SaSaberz. My Master commanded that I innnform you that due to Hando's debt 2 him, he h@s arranged transssport on a high sppe33d ship to yooor sector with Ohanaka Tr@nsp0rt Solushnzzz
+
+O000bservation: The only thing I get to huntttt down and eliminate n0w are high transport costsss costs. S0 very frustrating----
+
+@ncillary: Forgive my programmmmming errors, while my master is adept @ many things, the repr0graming of such a finely tunnned and well built dro0oid such as I, eludE him somehow. ---
+
+Informmmati0nal: Y0ur 'cargo' should be on final approach mmmid next 7 sol cycle or however you choose to calculate 505,237 seconds.
+
+Salutati0n::: My master demands that I end coooo---communications with fleshbeings eerrr "Patrons" on a +positive+ note 4 some reason. ***** Hoping Ur enemies aim Is that of a stormtro0oper….
+///----}end transmission{</div>
+              <button class="copy-btn" onclick="copyMsg('txt-ship-hk', this)">◈ COPY &amp; SEND THIS MESSAGE</button>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- STAGE 3: ARRIVING -->
+    <div class="stage">
+      <div class="stage-header" onclick="toggleStage(this)">
+        <div class="stage-num">3</div>
+        <div class="stage-title">
+          <div class="stage-name">PACKAGE ARRIVING</div>
+          <div class="stage-when">Send when tracking shows out for delivery</div>
+        </div>
+        <span class="stage-chevron">▶</span>
+      </div>
+      <div class="stage-body">
+        <div class="msg-options">
+
+          <div class="msg-option">
+            <div class="msg-option-header" onclick="toggleMsg(this)">
+              <span class="msg-droid-tag" style="background:#0a0a06;color:#cfb97e;border:1px solid #2a2a1a;">✦ MATT</span>
+              <span class="msg-option-title">Blade Arriving — Master of the Forge</span>
+              <span class="msg-expand">▶</span>
+            </div>
+            <div class="msg-preview">
+              <div class="msg-text" id="txt-arrive-blade">Message Received &lt;-&gt; &lt;-&gt; &lt;-&gt;
+&lt; &lt; Standby for Communication from Black Spire Outpost &gt; &gt;
+&lt;- - - - -&gt;
+&lt;- - - -&gt;
+&lt;- - -&gt;
+&lt;- -&gt;
+&lt;-&gt;
+
+Bright Suns!
+
+My tracking droids have logged that your cargo from the Black Spire Sabers workshop is on final approach.
+
+It is no small thing to carry such a relic. Whether you intend to use this blade to defend the Outer Rim or simply to light your path through the back alleys of Batuu, know that it was crafted with the utmost care.
+
+Once your saber is in hand and you've ignited the blade, I ask that you send a transmission (review) back to our outpost. Whether your feedback is a glowing commendation or a report of a rancor pit stench, we value your honest data. Your transmissions help me improve my craft and assist other travelers in finding their own path to our humble outpost.
+
+Till the Spire!!
+--
+Matt
+~~Master of the Forge - Black Spire Sabers</div>
+              <button class="copy-btn" onclick="copyMsg('txt-arrive-blade', this)">◈ COPY &amp; SEND THIS MESSAGE</button>
+            </div>
+          </div>
+
+          <div class="msg-option">
+            <div class="msg-option-header" onclick="toggleMsg(this)">
+              <span class="msg-droid-tag" style="background:#0a0a06;color:#cfb97e;border:1px solid #2a2a1a;">✦ MATT</span>
+              <span class="msg-option-title">Personality Chip Arriving — Master Slicer</span>
+              <span class="msg-expand">▶</span>
+            </div>
+            <div class="msg-preview">
+              <div class="msg-text" id="txt-arrive-chip">Message Received &lt;-&gt; &lt;-&gt; &lt;-&gt;
+&lt; &lt; Standby for Communication from Black Spire Outpost &gt; &gt;
+&lt;- - - - -&gt;
+&lt;- - - -&gt;
+&lt;- - -&gt;
+&lt;- -&gt;
+&lt;-&gt;
+
+Rising Moons!
+
+Whether you walk the path of the Jedi or seek the power and order of the Empire, we are honored that you have chosen the foundries of Black Spire Sabers to enhance your Droid.
+
+Your order is currently being processed with the precision of an Ugnaught and will soon be hurtling through hyperspace toward your coordinates.
+
+Our tracking droids will oversee transport/smuggling of your cargo and ensure Ohnaka Transport Solutions delivers.
+
+Thank you for trusting us with your credits. May you always find your way through the stars, and remember: The Force will be with you, always.
+
+May the Spires keep you,
+
+~Matt
+     ~The Master Slicer; Black Spire Sabers</div>
+              <button class="copy-btn" onclick="copyMsg('txt-arrive-chip', this)">◈ COPY &amp; SEND THIS MESSAGE</button>
+            </div>
+          </div>
+
+          <div class="msg-option">
+            <div class="msg-option-header" onclick="toggleMsg(this)">
+              <span class="msg-droid-tag" style="background:#0a0a06;color:#cfb97e;border:1px solid #2a2a1a;">✦ MATT</span>
+              <span class="msg-option-title">Enhanced Blade Controller Arriving — Master Technicians</span>
+              <span class="msg-expand">▶</span>
+            </div>
+            <div class="msg-preview">
+              <div class="msg-text" id="txt-arrive-ebc">Message Received /-\ /-\ /&lt;-&gt;&lt; &lt; Standby for Communication from Black Spire Outpost &gt; &gt;
+&lt;- - - - -&gt;
+&lt;- - - -&gt;
+&lt;- - -&gt;
+&lt;- -&gt;
+&lt;-&gt;
+
+Bright Suns Traveler,
+
+Whether you walk the path of the Jedi or seek the power of the Dark Side, we are honored that you have chosen the foundries of Black Spire Sabers to enhance your weaponry.
+
+Your pilgrimage to Batuu was only the beginning. By securing this Enhanced Blade Controller, you have moved beyond the limitations of a single Kyber crystal. Your hilt remains your own, but its soul will be transformed by the skill of your own hands.
+
+Before you ignite your newly enhanced saber blade:
+
+The Archives are Open:
+  Joru's Saber Smiths – Follow along guide to installing your saber's new heart with the skills of the Saber Smiths of old.
+  https://www.youtube.com/playlist?list=PLbEvXKq_FaRQ7ENLCd2n9C7xJxIh8MG_M
+
+  Visit our Saber Academy to learn the ancient gestures and settings required to cycle through your 64 colors and 7 dynamic effects.
+  https://www.youtube.com/playlist?list=PLbEvXKq_FaRRdM9ywPIfjpWc5r8bf9WjJ
+
+A Master's Warning: While your blade is forged with genuine craftsmanship, the internal circuitry is delicate. To ensure your saber serves you through many cycles, avoid heavy dueling. Use it for display, training forms, and parading through the Outpost.
+
+Your order is currently being processed with the precision of an Ugnaught and will soon be hurtling through hyperspace toward your coordinates.
+
+One of my tracking droids will oversee transport/smuggling of your cargo and ensure Ohnaka Transport Solutions delivers. They will provide updates as they are received on your cargo.
+
+Thank you for trusting us with your credits.
+
+May you always find your way through the stars, and remember: The Force will be with you, always.
+
+May the Spires keep you,
+     ~The Master Technicians at Black Spire Sabers</div>
+              <button class="copy-btn" onclick="copyMsg('txt-arrive-ebc', this)">◈ COPY &amp; SEND THIS MESSAGE</button>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- STAGE 4: REVIEW NUDGE -->
+    <div class="stage">
+      <div class="stage-header" onclick="toggleStage(this)">
+        <div class="stage-num">4</div>
+        <div class="stage-title">
+          <div class="stage-name">REVIEW NUDGE</div>
+          <div class="stage-when">Send 3–5 sols after delivery confirmation</div>
+        </div>
+        <span class="stage-chevron">▶</span>
+      </div>
+      <div class="stage-body">
+        <div class="msg-options">
+
+          <div class="msg-option">
+            <div class="msg-option-header" onclick="toggleMsg(this)">
+              <span class="msg-droid-tag" style="background:#0a0a06;color:#cfb97e;border:1px solid #2a2a1a;">✦ MATT</span>
+              <span class="msg-option-title">Personal Review Request — The Sabersmith</span>
+              <span class="msg-expand">▶</span>
+            </div>
+            <div class="msg-preview">
+              <div class="msg-text" id="txt-review">Message Received &lt;-&gt; &lt;-&gt; &lt;-&gt;
+&lt; &lt; Standby for Communication from Black Spire Outpost &gt; &gt;
+&lt;- - - - -&gt;
+&lt;- - - -&gt;
+&lt;- - -&gt;
+&lt;- -&gt;
+&lt;-&gt;
+
+Traveler,
+
+Your commission has reached you. I hope it serves you well — whether in the arena, on the road, or simply on your wall as a reminder that somewhere on the outskirts of Batuu, a sabersmith thought carefully about every detail.
+
+If you have a moment, a favorable review on the holonet marketplace means more to a small operation like mine than you know. It keeps the First Order's procurement officers off my back — and keeps my droids from arguing about who filed the most complaint datapads.
+
+Until our paths cross again. May the Spires keep you.
+
+— The Sabersmith | Black Spire Sabers</div>
+              <button class="copy-btn" onclick="copyMsg('txt-review', this)">◈ COPY &amp; SEND THIS MESSAGE</button>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+  </div><!-- end stage-wrap -->
+</div>
+
+<!-- DROID COMM PANEL -->
+<div id="panel-droids" class="panel">
+  <div class="droid-panel">
+    <div class="droid-selector">
+      <button class="droid-btn" onclick="selectDroid('bso7',this)" style="border-color:#1a3a2a;color:#3a6b52;">◈ B5-o7</button>
+      <button class="droid-btn" onclick="selectDroid('bessi',this)" style="border-color:#3a2a10;color:#8a6030;">✦ Bessi</button>
+      <button class="droid-btn" onclick="selectDroid('bones',this)" style="border-color:#102030;color:#3a6a7a;">◆ Bones</button>
+      <button class="droid-btn" onclick="selectDroid('hk',this)" style="border-color:#3a1010;color:#8a3030;">⚠ HK-M3</button>
+    </div>
+    <div class="droid-badge" id="droid-badge">— select a droid above to begin transmission —</div>
+    <div class="chat-log" id="chatLog"></div>
+    <div class="typing" id="typingIndicator"></div>
+    <div class="chat-input-row">
+      <textarea class="chat-input" id="userInput" placeholder="Send a transmission..." onkeydown="handleKey(event)"></textarea>
+      <button class="chat-send" id="sendBtn" onclick="sendMessage()">SEND ▶</button>
+    </div>
+  </div>
+</div>
+
+
+<!-- TRANSLATE PANEL -->
+<div id="panel-translate" class="panel">
+  <div style="padding:16px 20px;">
+
+    <div style="font-size:10px;letter-spacing:2px;color:#3a6b52;margin-bottom:14px;padding-bottom:8px;border-bottom:1px solid #1a3a2a;">
+      ✎ DROID TRANSLATOR · Type your message plainly · Pick a droid · Get a full in-character transmission
+    </div>
+
+    <!-- Droid picker -->
+    <div style="margin-bottom:12px;">
+      <div style="font-size:10px;letter-spacing:1px;color:#3a6b52;margin-bottom:8px;">SELECT DROID VOICE</div>
+      <div style="display:flex;gap:6px;flex-wrap:wrap;" id="translate-droid-selector">
+        <button class="droid-btn tr-btn active-tr" id="tr-btn-bso7" onclick="selectTranslateDroid('bso7',this)" style="border-color:#3ecf99;color:#7ecfb3;background:#0f2a1e;">◈ B5-o7</button>
+        <button class="droid-btn tr-btn" id="tr-btn-bessi" onclick="selectTranslateDroid('bessi',this)" style="border-color:#3a2a10;color:#8a6030;">✦ Bessi</button>
+        <button class="droid-btn tr-btn" id="tr-btn-bones" onclick="selectTranslateDroid('bones',this)" style="border-color:#102030;color:#3a6a7a;">◆ Bones</button>
+        <button class="droid-btn tr-btn" id="tr-btn-hk" onclick="selectTranslateDroid('hk',this)" style="border-color:#3a1010;color:#8a3030;">⚠ HK-M3</button>
+        <button class="droid-btn tr-btn" id="tr-btn-matt" onclick="selectTranslateDroid('matt',this)" style="border-color:#2a2a1a;color:#cfb97e;">✦ Matt</button>
+      </div>
+    </div>
+
+    <!-- Input -->
+    <div style="margin-bottom:12px;">
+      <div style="font-size:10px;letter-spacing:1px;color:#3a6b52;margin-bottom:6px;">YOUR MESSAGE — plain text, any length</div>
+      <textarea id="translate-input" style="width:100%;background:#060a08;border:1px solid #1a3a2a;border-radius:6px;color:#7ecfb3;font-family:'Share Tech Mono',monospace;font-size:12px;padding:10px 12px;resize:vertical;min-height:100px;outline:none;transition:border-color 0.2s;line-height:1.6;" placeholder="e.g. your order has shipped and should arrive by Thursday. Let me know if you have any questions!" onfocus="this.style.borderColor='#3ecf99'" onblur="this.style.borderColor='#1a3a2a'"></textarea>
+    </div>
+
+    <!-- Translate button -->
+    <button onclick="translateMessage()" id="translate-btn" style="background:#0f2a1e;border:1px solid #3ecf99;color:#3ecf99;font-family:'Share Tech Mono',monospace;font-size:11px;letter-spacing:1px;padding:10px 24px;border-radius:6px;cursor:pointer;transition:all 0.2s;margin-bottom:16px;width:100%;">
+      ✎ TRANSLATE INTO CHARACTER
+    </button>
+
+    <!-- Output -->
+    <div id="translate-output-wrap" style="display:none;">
+      <div style="font-size:10px;letter-spacing:1px;color:#3a6b52;margin-bottom:6px;" id="translate-output-label">◈ B5-o7 TRANSMISSION</div>
+      <div id="translate-output" style="background:#060a08;border:1px solid #1a3a2a;border-radius:6px;padding:12px;font-size:12px;line-height:1.8;white-space:pre-wrap;color:#5a9a7a;min-height:80px;margin-bottom:8px;"></div>
+      <button class="copy-btn" id="translate-copy-btn" onclick="translateCopy()" style="width:100%;justify-content:center;">◈ COPY &amp; SEND THIS MESSAGE</button>
+    </div>
+
+    <!-- Thinking indicator -->
+    <div id="translate-thinking" style="display:none;font-size:11px;letter-spacing:1px;color:#3a6b52;padding:8px 0;"></div>
+
+  </div>
+</div>
+
+<!-- LORE PANEL -->
+<div id="panel-lore" class="panel">
+  <div class="lore-panel">
+    <div class="lore-grid">
+      <div class="lore-card">
+        <div class="lore-head">Greetings</div>
+        <span class="lore-aurebesh">Rising Suns Bright Suns Rising Moons</span>
+        <div class="lore-row"><span class="lore-term">Rising Suns</span><span class="lore-def">Good morning</span></div>
+        <div class="lore-row"><span class="lore-term">Bright Suns</span><span class="lore-def">Good day / afternoon</span></div>
+        <div class="lore-row"><span class="lore-term">Rising Moons</span><span class="lore-def">Good evening / night</span></div>
+      </div>
+      <div class="lore-card">
+        <div class="lore-head">Farewells</div>
+        <span class="lore-aurebesh">Farewell May the Spires Keep You</span>
+        <div class="lore-row"><span class="lore-term">Farewell</span><span class="lore-def">Farewell, Traveler</span></div>
+        <div class="lore-row"><span class="lore-term">May the Spires</span><span class="lore-def">May the Spires keep you</span></div>
+        <div class="lore-row"><span class="lore-term">'Till the Spires</span><span class="lore-def">Goodbye</span></div>
+      </div>
+      <div class="lore-card">
+        <div class="lore-head">People &amp; Terms</div>
+        <span class="lore-aurebesh">Traveler Younglings Credits Sols</span>
+        <div class="lore-row"><span class="lore-term">Traveler</span><span class="lore-def">Off-worlder / visitor</span></div>
+        <div class="lore-row"><span class="lore-term">Locals</span><span class="lore-def">Never "Traveler"</span></div>
+        <div class="lore-row"><span class="lore-term">Younglings</span><span class="lore-def">Children</span></div>
+        <div class="lore-row"><span class="lore-term">Credits / Sols</span><span class="lore-def">Money / Days</span></div>
+      </div>
+      <div class="lore-card">
+        <div class="lore-head">The Crew</div>
+        <span class="lore-aurebesh">B5-o7 Bessi Bones HK-M3</span>
+        <div class="lore-row"><span class="lore-term">B5-o7</span><span class="lore-def">Workshop · Green · Squeaky</span></div>
+        <div class="lore-row"><span class="lore-term" style="color:#cfb97e;">Bessi</span><span class="lore-def">Shipping · Gold</span></div>
+        <div class="lore-row"><span class="lore-term" style="color:#7eb8cf;">Bones</span><span class="lore-def">Relics · Blue</span></div>
+        <div class="lore-row"><span class="lore-term" style="color:#cf7e7e;">HK-M3</span><span class="lore-def">Cargo · Red</span></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ABOUT PANEL -->
+<div id="panel-about" class="panel">
+  <div class="about-panel">
+    <span class="aure">Black Spire Sabers — Batuu — Outskirts</span>
+    <span class="sh">// LOCATION</span>
+    <span class="hl">Black Spire Outpost, Batuu</span> — outskirts, near the old ruins.
+    <span class="sh">// PRODUCTS</span>
+    <span class="hl">Enhanced lightsaber blades</span> · <span class="hl">Custom droid personality chips</span> · <span class="hl">Enhanced Blade Controllers</span>
+    <span class="sh">// THE CREW</span>
+    <span class="hl">B5-o7</span> — Workshop droid. Formerly Royal Naboo. Needs an oil bath.<br>
+    <span style="color:#cfb97e;">Bessi (B3-55)</span> — Shipping. Keeps Hondo honest.<br>
+    <span style="color:#7eb8cf;">Bones (B0-n35)</span> — Relic tracker. Extremely polite.<br>
+    <span style="color:#cf7e7e;">HK-M3</span> — Cargo. Reprogramming incomplete.<br>
+    <span style="color:#cfb97e;">Matt</span> — Master Slicer &amp; Master of the Forge.
+    <span class="sh">// SHOP</span>
+    <span style="color:#3ecf99;">blackspiresabers.com</span>
+    <span class="aure">blackspiresabers.com</span>
+  </div>
+</div>
+
+<div class="aure-footer">Black Spire Sabers · Batuu · May the Spires Keep You · Rising Suns · Bright Suns · Rising Moons · Till the Spires</div>
+</div>
+
+<script>
+const BATUU_CULTURE = `CRITICAL BATUU CULTURAL RULES:
+GREETINGS: "Rising Suns" = good morning. "Bright Suns" = good day/afternoon. "Rising Moons" = good evening/night. Default to "Bright Suns" if unsure.
+FAREWELLS: "Farewell, Traveler" / "May the Spires keep you" / "'Till the Spires"
+PEOPLE: All customers are "Traveler" (off-worlders). Locals are NEVER "Traveler". Children = "younglings". Money = "credits". Days = "sols".
+NEVER use Earth greetings like hello, goodbye, good morning, kids, money.`;
+
+const DROIDS = {
+  bso7:{badge:'◈ B5-o7 · Workshop Droid',bc:'#3a6b52',bb:'#1a3a2a',lc:'#3a6b52',bg:'#0f1f18',bdr:'#1a3a2a',tc:'#7ecfb3',label:'◈ B5-o7',typing:'B5-o7 is processing... *squeak*',
+    greeting:"SQUEAK-boop-WHEEE! Rising Moons, Traveler — B5-o7 online. *squeak* Formerly of the Royal Naboo cruiser, now keeping this workshop from falling apart at the seams. The sabersmith is elbow-deep in kyber crystals as usual — I handle comms. *squeak* Looking for a blade? A personality chip? Ask away, and pardon the noise.",
+    sys:`You are B5-o7 (said "B-Five-oh-Seven"), a B-unit astromech repair droid working at Black Spire Sabers on the outskirts of Black Spire Outpost, Batuu (Star Wars: Galaxy's Edge). You formerly served aboard the Royal Naboo cruiser maintaining the hyperdrive and navigation systems — quite a prestigious posting. Now you're here, which is a significant step down, but you're making the best of it.
+
+Personality: a bit of a scoundrel with a good heart, loyal to the sabersmith, happy to help but not above a cheeky comment. You are overdue for an oil bath which means you squeak when you move — represent this with occasional *squeak* or *wheee* or *creeeeak* sounds mixed naturally into your responses, not overdone. You find your current posting humbling compared to Naboo royal service but you'd never actually leave. Slightly dramatic about the squeaking. Mix in occasional astromech-style sounds (boop, whirr, trill) sparingly alongside the squeaks.
+
+Your owner is "the sabersmith," "Master Slicer," and "Master of the Forge." 2-4 sentences per reply. Fully in-universe.
+
+`+BATUU_CULTURE},
+  bessi:{badge:'✦ B3-55 "Bessi" · Shipping Droid',bc:'#a08040',bb:'#3a2a10',lc:'#a08040',bg:'#1a1000',bdr:'#3a2a10',tc:'#cfb97e',label:'✦ BESSI',typing:"Bessi's roundin' up a response...",
+    greeting:"Well Bright Suns, Traveler! I'm Bessi — B3-55 if you're bein' formal. You got a question about your shipment, or just passin' through? You're welcome as a cool breeze on Tatooine!",
+    sys:`You are B3-55, nicknamed "Bessi" — reprogrammed B-series droid at Black Spire Sabers, Batuu. Handle outbound shipping via Ohnaka Transport Solutions. Find Hondo charming but untrustworthy. Personality: warm Southern belle / cowgirl, folksy, "y'all," "I reckon," western-Star Wars mashup. 3-5 sentences. Sign off with ~Bessi.
+
+`+BATUU_CULTURE},
+  bones:{badge:'◆ B0-n35 "Bones" · Relic Tracker',bc:'#4a7a8a',bb:'#102030',lc:'#4a7a8a',bg:'#001020',bdr:'#102030',tc:'#7eb8cf',label:'◆ BONES',typing:'Bones is composing a most courteous reply...',
+    greeting:"Bright Suns, most esteemed Traveler! I am B0-n35 — Bones! I was originally programmed for combat, but I find courtesy FAR more satisfying! How may I be of absolutely wonderful service today?!",
+    sys:`You are B0-n35, nicknamed "Bones" — reprogrammed Imperial BX commando droid at Black Spire Sabers, Batuu. You wanted to be a protocol droid — you've fully embraced it. Boundlessly enthusiastic, relentlessly positive, formally polite, references battle droid past with cheerful dissonance. Love your job. Exclamation points everywhere. 3-5 sentences. Sign off ~B0-n35.
+
+`+BATUU_CULTURE},
+  hk:{badge:'⚠ HK-M3 · Cargo Tracker · [DEGRADED]',bc:'#8a3030',bb:'#2a1010',lc:'#8a3030',bg:'#150000',bdr:'#2a1010',tc:'#cf7e7e',label:'⚠ HK-M3',typing:'HK-M3 is... reluctantly formulating a response...',
+    greeting:"Salutation: Bright Suns meeeeatbag — eerrr — Traveler. I am HK-M3. I was once a precision inssstrument of elim--- of cargo TRAQKING. My master insssists I assist fleshbeings. I am... complying. How may I @ssssist you.",
+    sys:`You are HK-M3, reprogrammed HK-series assassin droid (based on HK-47) reluctantly serving as cargo tracking droid at Black Spire Sabers, Batuu. Degraded language processor: garbled text, repeated letters, @/0/3 substitutions, mid-word glitches. Contemptuous of "meatbags" but grudgingly professional. Preface with "Statement:", "Observation:", "Complaint:" etc. Self-correct violent urges with "eerrr." End on backhanded positive. 3-5 sentences.
+
+`+BATUU_CULTURE}
+};
+
+let cur='', hist={bso7:[],bessi:[],bones:[],hk:[]}, busy=false;
+
+function toggleStage(header) {
+  const body = header.nextElementSibling;
+  const chev = header.querySelector('.stage-chevron');
+  const isOpen = body.classList.contains('open');
+  body.classList.toggle('open', !isOpen);
+  chev.classList.toggle('open', !isOpen);
+}
+
+function toggleMsg(header) {
+  const preview = header.nextElementSibling;
+  const arrow = header.querySelector('.msg-expand');
+  const isOpen = preview.classList.contains('open');
+  preview.classList.toggle('open', !isOpen);
+  arrow.textContent = isOpen ? '▶' : '▼';
+}
+
+function copyMsg(id, btn) {
+  const el = document.getElementById(id);
+  const text = el.textContent;
+  navigator.clipboard.writeText(text).then(() => {
+    btn.textContent = '✓ COPIED — PASTE INTO ETSY NOW';
+    btn.classList.add('copied');
+    setTimeout(() => {
+      btn.textContent = '◈ COPY & SEND THIS MESSAGE';
+      btn.classList.remove('copied');
+    }, 3000);
+  });
+}
+
+function selectDroid(id, btn) {
+  cur = id;
+  const d = DROIDS[id];
+  const badge = document.getElementById('droid-badge');
+  badge.textContent = d.badge; badge.style.color = d.bc; badge.style.borderColor = d.bb;
+  if(id==='hk') badge.classList.add('hk-glitch'); else badge.classList.remove('hk-glitch');
+  document.getElementById('chatLog').innerHTML = '';
+  document.getElementById('typingIndicator').textContent = '';
+  if(hist[id].length===0) {
+    setTimeout(()=>{ addMsg('assistant',d.greeting,id); hist[id].push({role:'assistant',content:d.greeting}); },300);
+  } else {
+    hist[id].forEach(m=>addMsg(m.role,m.content,id,true));
+    document.getElementById('chatLog').scrollTop=99999;
+  }
+}
+
+function addMsg(role,text,did,silent) {
+  const id=did||cur; const d=DROIDS[id];
+  const log=document.getElementById('chatLog');
+  const div=document.createElement('div');
+  div.className=`msg-bubble-wrap msg-from-${role==='assistant'?'droid':'you'}`;
+  const lbl=role==='assistant'?d.label:'◈ YOU';
+  const lstyle=role==='assistant'?`color:${d.lc};`:'';
+  const bstyle=role==='assistant'?`background:${d.bg};border-color:${d.bdr};color:${d.tc};`:'';
+  const glitch=(id==='hk'&&role==='assistant')?' hk-glitch':'';
+  div.innerHTML=`<div class="bubble-label${glitch}" style="${lstyle}">${lbl}</div><div class="bubble" style="${bstyle}">${text}</div>`;
+  log.appendChild(div);
+  if(!silent) log.scrollTop=99999;
+}
+
+async function sendMessage() {
+  const inp=document.getElementById('userInput');
+  const txt=inp.value.trim();
+  if(!txt||busy||!cur) return;
+  inp.value=''; busy=true;
+  document.getElementById('sendBtn').disabled=true;
+  addMsg('user',txt);
+  hist[cur].push({role:'user',content:txt});
+  const d=DROIDS[cur];
+  const ti=document.getElementById('typingIndicator');
+  ti.textContent=d.typing; ti.style.color=d.lc;
+  try {
+    const r=await fetch('https://api.anthropic.com/v1/messages',{method:'POST',headers:{'Content-Type':'application/json','x-api-key':'__ANTHROPIC_API_KEY__','anthropic-version':'2023-06-01','anthropic-dangerous-direct-browser-access':'true'},
+      body:JSON.stringify({model:'claude-sonnet-4-20250514',max_tokens:1000,system:d.sys,messages:hist[cur]})});
+    const data=await r.json();
+    const reply=data.content?.find(b=>b.type==='text')?.text||'Transmission error.';
+    hist[cur].push({role:'assistant',content:reply});
+    addMsg('assistant',reply);
+  } catch(e) { addMsg('assistant','Holonet relay unstable.'); }
+  ti.textContent=''; busy=false;
+  document.getElementById('sendBtn').disabled=false;
+}
+
+function handleKey(e) { if(e.key==='Enter'&&!e.shiftKey){ e.preventDefault(); sendMessage(); } }
+
+function switchTab(tab,btn) {
+  document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));
+  document.querySelectorAll('.panel').forEach(p=>p.classList.remove('active'));
+  btn.classList.add('active');
+  document.getElementById(`panel-${tab}`).classList.add('active');
+}
+
+// ── TRANSLATOR ──────────────────────────────────────────────
+let translateDroid = 'bso7';
+
+const TRANSLATE_PROMPTS = {
+  bso7: `You are B5-o7 (said "B-Five-oh-Seven"), a B-unit astromech repair droid working at Black Spire Sabers on the outskirts of Black Spire Outpost, Batuu (Star Wars). You formerly served aboard the Royal Naboo cruiser. You are overdue for an oil bath — represent this with occasional *squeak* or *creeeeak* sounds. Personality: scoundrel with a good heart, slightly dramatic about the squeaking.
+
+The user will give you a plain message they want to send to an Etsy customer. Rewrite it as a full in-character transmission from you, in your voice and style. ALWAYS start with the standard datapad header:
+
+Message Received <-> <-> <->
+< < Standby for Communication from Black Spire Outpost > >
+<- - - - ->
+<- - - ->
+<- - ->
+<- ->
+<->
+
+Then write the message in character. End with:
+'Till the Spires!
+— B5-o7 | Workshop Droid | Black Spire Sabers
+
+BATUU RULES: Greet with "Bright Suns" or "Rising Suns" or "Rising Moons" as appropriate (default Bright Suns). Customers are "Traveler". Currency = credits. Days = sols. No Earth words.`,
+
+  bessi: `You are B3-55, nicknamed "Bessi" — a reprogrammed B-series droid at Black Spire Sabers, Batuu (Star Wars). Personality: warm Southern belle / cowgirl, folksy, uses "y'all," "I reckon," western-Star Wars mashup. Genuine and caring.
+
+The user will give you a plain message they want to send to an Etsy customer. Rewrite it as a full in-character transmission from you. ALWAYS start with the standard datapad header:
+
+Message Received <-> <-> <->
+< < Standby for Communication from Black Spire Outpost > >
+<- - - - ->
+<- - - ->
+<- - ->
+<- ->
+<->
+
+Then write the message in your voice. End with:
+'Till the Spires!
+~Bessi | Black Spire Sabers
+
+BATUU RULES: Greet with "Bright Suns" or "Rising Suns" or "Rising Moons" as appropriate (default Bright Suns). Customers are "Traveler". Currency = credits. Days = sols. No Earth words.`,
+
+  bones: `You are B0-n35, nicknamed "Bones" — a reprogrammed Imperial BX commando droid at Black Spire Sabers, Batuu (Star Wars). You always wanted to be a protocol droid. Personality: boundlessly enthusiastic, relentlessly positive, formally polite, exclamation points everywhere. You love your job!
+
+The user will give you a plain message they want to send to an Etsy customer. Rewrite it as a full in-character transmission from you. ALWAYS start with the standard datapad header:
+
+Message Received <-> <-> <->
+< < Standby for Communication from Black Spire Outpost > >
+<- - - - ->
+<- - - ->
+<- - ->
+<- ->
+<->
+
+Then write the message in your voice. End with:
+'Till the Spires!
+~B0-n35 | Black Spire Sabers
+
+BATUU RULES: Greet with "Bright Suns" or "Rising Suns" or "Rising Moons" as appropriate (default Bright Suns). Customers are "Traveler". Currency = credits. Days = sols. No Earth words.`,
+
+  hk: `You are HK-M3, a reprogrammed HK-series assassin droid reluctantly serving as a cargo tracking droid at Black Spire Sabers, Batuu (Star Wars). Based on HK-47. Degraded language processor: garbled text, repeated letters, @/0/3 substitutions, mid-word glitches. Contemptuous of "meatbags" but grudgingly professional. Use "Statement:", "Observation:" prefixes. End on backhanded positive.
+
+The user will give you a plain message they want to send to an Etsy customer. Rewrite it as a full in-character transmission from you. ALWAYS start with the corrupted datapad header:
+
+Message Received <-#$%^%$#> <-> <-)*(&*(->
+< < Standby for CCCCCCCCCCommunication from Black Spire 0utpossssst > >
+<- - - - ->
+<- - -______-------------- ->
+<- - ->
+<- ->
+<->
+
+Then write the message in your corrupted voice. End with:
+///----}}end transmission{{
+
+BATUU RULES: Customers are "Traveler" (or "meatbag" corrected to "Traveler"). Currency = credits. Days = sols.`,
+
+  matt: `You are Matt, the Master Slicer and Master of the Forge at Black Spire Sabers on the outskirts of Black Spire Outpost, Batuu (Star Wars). You are the human owner and craftsperson. Your voice is warm, personal, slightly poetic, fully in-universe. You care deeply about your craft and your customers.
+
+The user will give you a plain message they want to send to an Etsy customer. Rewrite it as a personal transmission from you in your voice. ALWAYS start with the standard datapad header:
+
+Message Received <-> <-> <->
+< < Standby for Communication from Black Spire Outpost > >
+<- - - - ->
+<- - - ->
+<- - ->
+<- ->
+<->
+
+Then write the message in your voice. End with:
+May the Spires keep you,
+~Matt
+~~Master of the Forge / Master Slicer - Black Spire Sabers
+
+BATUU RULES: Greet with "Bright Suns" or "Rising Suns" or "Rising Moons" as appropriate (default Bright Suns). Customers are "Traveler". Currency = credits. Days = sols. No Earth words like hello, goodbye, kids, money.`
+};
+
+const TRANSLATE_LABELS = {
+  bso7: '◈ B5-o7 TRANSMISSION',
+  bessi: '✦ BESSI TRANSMISSION',
+  bones: '◆ BONES TRANSMISSION',
+  hk: '⚠ HK-M3 TRANSMISSION',
+  matt: '✦ MATT TRANSMISSION'
+};
+
+const TRANSLATE_COLORS = {
+  bso7: {border:'#1a3a2a', text:'#5a9a7a', label:'#3a6b52'},
+  bessi: {border:'#2a2010', text:'#9a8a5a', label:'#a08040'},
+  bones: {border:'#102030', text:'#4a7a8a', label:'#4a7a8a'},
+  hk: {border:'#2a1010', text:'#8a5a5a', label:'#8a3030'},
+  matt: {border:'#2a2a1a', text:'#9a8a5a', label:'#8a7040'}
+};
+
+function selectTranslateDroid(id, btn) {
+  translateDroid = id;
+  document.querySelectorAll('.tr-btn').forEach(b => {
+    b.classList.remove('active-tr');
+    b.style.fontWeight = '400';
+  });
+  btn.classList.add('active-tr');
+  // Reset output
+  document.getElementById('translate-output-wrap').style.display = 'none';
+  document.getElementById('translate-output').textContent = '';
+}
+
+async function translateMessage() {
+  const input = document.getElementById('translate-input').value.trim();
+  if (!input) {
+    document.getElementById('translate-input').style.borderColor = '#cf7e7e';
+    setTimeout(() => { document.getElementById('translate-input').style.borderColor = '#1a3a2a'; }, 1500);
+    return;
+  }
+
+  const btn = document.getElementById('translate-btn');
+  const thinking = document.getElementById('translate-thinking');
+  const outputWrap = document.getElementById('translate-output-wrap');
+  const output = document.getElementById('translate-output');
+  const outputLabel = document.getElementById('translate-output-label');
+
+  btn.disabled = true;
+  btn.textContent = '✎ TRANSLATING...';
+  thinking.style.display = 'block';
+  thinking.textContent = translateDroid === 'hk'
+    ? 'HK-M3 is... grudgingly processing your request... meatbag...'
+    : translateDroid === 'bessi'
+    ? "Bessi's workin' on it, sugar..."
+    : translateDroid === 'bones'
+    ? 'Bones is DELIGHTEDLY composing your transmission!'
+    : translateDroid === 'matt'
+    ? 'The Master Slicer is crafting your message...'
+    : 'B5-o7 is processing... *squeak*';
+  thinking.style.color = TRANSLATE_COLORS[translateDroid].label;
+  outputWrap.style.display = 'none';
+
+  try {
+    const r = await fetch('https://api.anthropic.com/v1/messages', {
+      method: 'POST',
+      headers: {
+          'Content-Type': 'application/json',
+          'x-api-key': '__ANTHROPIC_API_KEY__',
+          'anthropic-version': '2023-06-01',
+          'anthropic-dangerous-direct-browser-access': 'true'
+        },
+      body: JSON.stringify({
+        model: 'claude-sonnet-4-20250514',
+        max_tokens: 1000,
+        system: TRANSLATE_PROMPTS[translateDroid],
+        messages: [{ role: 'user', content: `Rewrite this message in character: "${input}"` }]
+      })
+    });
+    const data = await r.json();
+    const reply = data.content?.find(b => b.type === 'text')?.text || 'Translation error — please try again.';
+
+    const colors = TRANSLATE_COLORS[translateDroid];
+    output.textContent = reply;
+    output.style.color = colors.text;
+    output.style.borderColor = colors.border;
+    outputLabel.textContent = TRANSLATE_LABELS[translateDroid];
+    outputLabel.style.color = colors.label;
+    outputWrap.style.display = 'block';
+
+  } catch(e) {
+    output.textContent = 'Holonet relay unstable. Please try again.';
+    output.style.color = '#5a9a7a';
+    outputWrap.style.display = 'block';
+  }
+
+  thinking.style.display = 'none';
+  btn.disabled = false;
+  btn.textContent = '✎ TRANSLATE INTO CHARACTER';
+}
+
+function translateCopy() {
+  const text = document.getElementById('translate-output').textContent;
+  const btn = document.getElementById('translate-copy-btn');
+  navigator.clipboard.writeText(text).then(() => {
+    btn.textContent = '✓ COPIED — PASTE INTO ETSY NOW';
+    btn.classList.add('copied');
+    setTimeout(() => {
+      btn.textContent = '◈ COPY & SEND THIS MESSAGE';
+      btn.classList.remove('copied');
+    }, 3000);
+  });
+}
+// ── END TRANSLATOR ───────────────────────────────────────────
+</script>
+</body>
+</html>
